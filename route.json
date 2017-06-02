@@ -1,0 +1,21 @@
+[{
+  "path": "/not",
+  "component": {
+    "path": "./pages/not",
+    "async": true,
+    "chunk": "not-inservice"
+  }
+}]
+
+/* 经过webpack编译后内容
+module.exports = [{
+  path: "/not",
+  component: function(resolve) {
+    require.ensure([], function() {
+      resolve(require("./pages/not").default);
+    }, "not");
+  }
+}]
+
+// 在require('routes.json')的时候，webpack会将require.ensure()包裹的部分单独打包
+*/
